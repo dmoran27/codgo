@@ -1,0 +1,42 @@
+<div id="acordeon">
+ {{range $index, $element := .Items}} 
+<!--video -->
+<section class="video row align-items-stretch justify-content-between rounded mt-3">	
+	{{range .Pagemap.Videoobject}} 				
+    <article  class="col-12">
+        <div class="card " id="Heading{{$index}}">
+           <a href="{{.URL}}" class="p-3"> 
+                <img src={{.Thumbnailurl}} class="card-img-top img-fluid"  style="max-height: 400px;" title={{.Name}} alt={{.Name}}>
+            </a> 
+            <div class="card-block ">
+                <div class="p-3 ">
+                    <a href={{.URL}}><h3 class="card-title card-link title" >{{ .Name }}</h3></a>
+                    <p class="card-subtitle text-muted mb-2 url">{{.URL}}</p>
+                    <p class="card-text description">{{ .Description }}</p>    
+                        
+                </div>
+                
+                <div class="link d-flex justify-content-end pb-3">
+                    <a href="#p{{$index}}" data-toggle="collapse" aria-expanded="true"
+                        aria-controls="p{{$index}}" class="card-link btn"><i class="icon icon-list-bullet"></i></a>
+                    <a href="#" class="btn card-link favoritos" >
+                        <i class=" icon icon-star"  id={{.URL}}></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" aria-labelledby="Heading{{$index}}" id="p{{$index}}"data-parent="#acordeon">
+            <div class="card p-3 ">
+                    <h5 class="card-text text-info"> Fecha de Publicacion: </h5>  <p class="card-text text-muted"> {{ .Datepublished}} </p>
+                    <h5 class="card-text text-info"> Tipo de archivo: </h5>  <p class="card-text text-muted"> {{ .Playertype}} </p>
+                    <h5 class="card-text text-info"> Genero: </h5>  <p class="card-text text-muted"> {{ .Genre}} </p>             
+            </div>
+        </div>     
+                       
+    </article> 
+    {{end}}
+</section>
+
+{{end}}
+
+</div>

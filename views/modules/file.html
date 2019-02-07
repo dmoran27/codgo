@@ -1,0 +1,58 @@
+
+{{ if (eq .Favoritos "si")}}
+
+<table class="table table-striped bg-light shadow">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Busqueda</th>
+            <th scope="col">Link</th>
+            <th scope="col">Favoritos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $index, $element := .Fav.Link}} 
+          <tr>
+            <th scope="row">{{$index}}</th>
+            <td>{{.Theme}}</td>
+            <td ><a href={{.Link}} class="d-block" style="max-width: 40em; overflow: hidden;">{{.Link}}</a></td>
+            <td><a href="#" class="btn card-link favoritos" >
+                    <i class=" icon icon-star-filled"   id={{.Link}}></i>
+            </a></td>
+          </tr>
+          {{end}}
+        </tbody>
+</table>
+{{ end }}
+
+
+<div id="acordeon">
+
+        {{range $index, $element := .Items}} 
+            <div class="card px-0 ">
+                <div class="card-header" id="Heading{{$index}}">
+                    <a href={{.Link}}>
+                        <h3 class="card-title card-link title ">{{ .Title }} </h3>
+                    </a> -->
+                    <p class="card-subtitle text-muted mb-2 url"> {{ .Link }}</p>
+                    <p class="card-text description">{{ .Snippet }}</p>
+                    <div class="link d-flex justify-content-end">
+                        <a href="#p{{$index}}" data-toggle="collapse" aria-expanded="true"
+                            aria-controls="p{{$index}}" class="card-link btn"><i class="icon icon-list-bullet"></i></a>
+                        <a href="#" class="btn card-link favoritos" >
+                            <i class=" icon icon-star"  id={{.Link}}></i>
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="collapse" aria-labelledby="Heading{{$index}}" id="p{{$index}}"data-parent="#acordeon">
+                    <div class="card p-2 ">
+                            <h5 class="card-text text-info">Titulo de la pagina: </h5>  <p class="card-text text-muted"> {{ .Title}} </p>           
+                    </div>
+                </div>
+            </div>
+        
+        {{ end }}
+        </div>
+        
+        

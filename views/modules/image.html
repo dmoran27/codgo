@@ -1,0 +1,44 @@
+<!--image -->
+<div class="row " id="acordeon">
+    <div class="card-columns">
+
+
+        {{range $index, $element := .Items}}
+        {{range $i, $e := .Pagemap.CseImage}}
+
+        <div class="card  m-1" id="Heading{{$index}}{{$i}}">
+            <div class="contenedor-imagen pt-3">
+                <a href="#" data-toggle="modal" data-target="#modal">
+                    <img src={{.Src}} class="img card-img-top" alt={{$element.Title}}>
+                </a>
+            </div>
+            <div class="link d-flex justify-content-end pb-3">
+                <a href="#p{{$index}}{{$i}}" data-toggle="collapse" aria-expanded="true" aria-controls="p{{$index}}{{$i}}"
+                    class="card-link btn"><i class="icon icon-list-bullet"></i></a>
+                <a href="#" class="btn card-link favoritos">
+                    <i class=" icon icon-star" id={{$element.Link}}></i>
+                </a>
+            </div>
+            <div class="collapse m-auto" style="max-width: 22em;" aria-labelledby="Heading{{$index}}{{$i}}" id="p{{$index}}{{$i}}" data-parent="#acordeon">
+                <div class="card  p-3 ">
+                  </a><h5 class="card-text text-info"> Titulo: </h5> 
+                        <p class="card-text text-muted"> {{$element.Title}} </p>                    
+                      <h5 class="card-text text-info"> Url:</h5> <a href={{$element.Link}}>
+                    <p class="card-text text-muted"> {{$element.Link}} </p></a>
+                </div>
+            </div>
+
+        </div>
+
+        {{end}}
+        {{end}}
+    </div>
+</div>
+
+<div class="modal fade" id="modal">
+    <div class="modal-dialog d-flex w-100 h-100 justify-content-center align-items-center">
+        <div class="modal-content">
+            <img src="" id="imagen-modal" class="imagen-modal" alt="">
+        </div>
+    </div>
+</div>

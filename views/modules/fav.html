@@ -1,0 +1,32 @@
+<table class="table table-striped bg-light shadow" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tema</th>
+            <th scope="col">Link</th>
+            <th scope="col">Usuario</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $index, $element := .Link}} 
+          <tr>
+            <th scope="row">{{$index}}</th>
+            <td>{{.Theme}}</td>
+            <td ><a href={{.Link}} class="d-block" style="max-width: 40em; overflow: hidden;">{{.Link}}</a></td>
+
+            <td>{{.User}}</td>
+            <td><a href="#" class="btn card-link favoritos" >
+                <i class=" icon icon-star-filled"   id={{.Link}}></i>
+        </a></td>
+          </tr>
+          {{end}}
+        </tbody>
+</table>
+      
+<button type="button" class= "c-1 d-flex align-items-center border-0 rounded-left" id="borrarFavoritos">
+  <div class=" d-flex flex-md-column text-center">
+      <p class="mb-0 ">Busqueda Informatica</p>
+      <i class="icon icon-search"></i>
+  </div>
+</button>

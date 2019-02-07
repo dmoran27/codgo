@@ -1,0 +1,30 @@
+<table class="table table-striped bg-light shadow" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Busqueda</th>
+            <th scope="col">Url</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $index, $element := .Hist}} 
+          <tr>
+            <th scope="row">{{$index}}</th>
+            <td>{{.Date}}</td>
+            <td>{{.Hours}}</td>
+            <td>{{.Theme}}</td>
+            <td ><a href={{.Link}} class="d-block" style="max-width: 40em; overflow: hidden;">{{.Link}}</a></td>
+           
+          </tr>
+          {{end}}
+        </tbody>
+</table>
+
+<button type="button" class= "c-1 d-flex align-items-center border-0 rounded-left" id="borrarHistorial">
+        <div class=" d-flex flex-md-column text-center">
+            <p class="mb-0 ">Busqueda Informatica</p>
+            <i class="icon icon-search"></i>
+        </div>
+</button>
